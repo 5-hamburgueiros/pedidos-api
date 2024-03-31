@@ -1,0 +1,72 @@
+name: Deploy to EKS
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  EKS_CLUSTER_NAME: fiap-cluster
+  AWS_REGION: us-east-1
+  ECR_REPOSITORY: pedidos-api
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: ${{env.AWS_REGION}}
+
+      - name: Create ecr repository
+        id: create-ecr
+        run: |
+          aws ecr describe-repositories --repository-names $ECR_REPOSITORY || \
+          aws ecr create-repository --repository-name $ECR_REPOSITORY
+
+      - name: Build Image
+        id: build-image
+        run: |
+          echo Arguments to build
+          echo build-arg-extra:${{ inputs.build_arg }}
+          echo registry:${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com
+          echo repository:$ECR_REPOSITORY
+          echo file:${{ github.workspace }}/Dockerfile
+
+          image=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest
+
+          # Build a docker container and push it to ECR
+          docker build --file ${{ github.workspace }}/Dockerfile ${{inputs.build_arg }} \
+          --build-arg ECR_REGISTRY=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com \
+          -t $image .
+
+          echo "Pushing $image to ECR..."
+
+          aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com
+          docker push $image
+
+      - name: Configure kubectl
+        run: |
+          aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region ${{ env.AWS_REGION }} --kubeconfig ./kubeconfig
+          echo 'KUBE_CONFIG_DATA<<EOF' >> $GITHUB_ENV
+          echo $(cat ./kubeconfig | base64) >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+
+      - name: Helm Deployment
+        uses: rodrigo-oliveira-silva/helm-eks-action@master
+        id: helm-deploy
+        env:
+          KUBE_CONFIG_DATA: ${{ env.KUBE_CONFIG_DATA }}
+        with:
+          command: |
+            helm repo add 5-hamburgueiros https://5-hamburgueiros.github.io/helm-charts/
+            helm repo update
+            helm upgrade -i $ECR_REPOSITORY 5-hamburgueiros/nodejs --set image.repository=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY --set image.tag=latest --set service.type=LoadBalancer --set service.port=80
