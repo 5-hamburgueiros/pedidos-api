@@ -19,12 +19,12 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@/*": ["src/*"],
-      "@/infra/*": ["src/infra/*"],
-      "@/api/*": ["src/api/*"],
-      "@/application/*": ["src/application/*"],
-      "@/common/*": ["src/common/*"],
-      "@/domain/*": ["src/domain/*"],
-      "@/modules/*": ["src/modules/*"],
+      "@infra/*": ["src/infra/*"],
+      "@api/*": ["src/api/*"],
+      "@application/*": ["src/application/*"],
+      "@common/*": ["src/common/*"],
+      "@domain/*": ["src/domain/*"],
+      "@module/*": ["src/modules/*"],
       "@test/*": ["test/*"]
     }
   }
