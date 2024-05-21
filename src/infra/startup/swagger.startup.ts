@@ -5,7 +5,7 @@ const { npm_package_version: VERSION = '0.1.0', NODE_ENV } = process.env;
 export class SwaggerStartup {
   static init(app: INestApplication) {
     const config = new DocumentBuilder()
-      .setTitle('Tech Challenge - Backend')
+      .setTitle('Pedidos API - Backend')
       .setExternalDoc('Exportar documentação', '/swagger-json')
       .setDescription('Sistema de gestão de pedidos')
       .addBearerAuth()
