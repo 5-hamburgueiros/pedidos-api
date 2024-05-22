@@ -32,6 +32,17 @@ export default {
     'date.extensions.ts',
     'app.module.ts',
     'index.ts',
+    'domain/entities/*',
+    'common/constants.ts',
+    'common/exceptions/*',
+    'domain/enum/*',
+    'domain/exceptions/*',
+    'infra/configs/config.ts',
+    'infra/configs/typeorm.config.ts',
+    'infra/middlewares/correlation/*',
+    'common/utils/keep-provided-naming-strategy-typeorm.utils.ts',
+    'common/typeorm.models.ts',
+    'infra/pipes/*'
   ],
 
   // Indicates which provider should be used to instrument code for coverage
