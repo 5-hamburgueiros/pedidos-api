@@ -1,73 +1,63 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Tech Challenge FIAP - Grupo 52
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Objetivo
+API destinada ao gerenciamento de pedidos, utilizando o MongoDB como armazenamento de dados.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+Responsável por operacionalizar a criação de um pedido, validando o cliente na api do monolito caso seja informado, validando as informações de itens e combos chamando a api de cardápios, somando o valor de todos os itens e combos e chamando a api de pagamentos para geraçao do QrCode.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Ao receber o status de Pago pela api de Pagamentos, fazemos uma chamada para a api de produção dar inicio a preparação do pedido realizado.
 
-## Installation
+## Execução em um cluster k8s
 
-```bash
-$ pnpm install
+Para executar a aplicação em um cluster Kubernetes, com o `kubectl` corretamente configurado, execute:
+
+```shell
+kubectl apply -f k8s
 ```
 
-## Running the app
+Com isso, a API estará disponível na porta 30001 do Cluster. Se for em um ambiente local com Docker Desktop ou _minikube_,
+você pode acessar o endereço http://localhost:30001. Em ambientes de nuvem, substitua `localhost` pelo endereço público do cluster.
 
-```bash
-# development
-$ pnpm run start
+## Execução para desenvolvimento
 
-# watch mode
-$ pnpm run start:dev
+Para executar o projeto em modo de desenvolvimento, copie o arquivo ***.env.example*** para ***.env*** e execute os seguintes comandos:
 
-# production mode
-$ pnpm run start:prod
+```shell
+yarn install
+```
+```shell
+yarn start:dev
 ```
 
-## Test
+Com isso, a API estará disponível na porta 3000 e pode ser acessada pelo endereço http://localhost:3000
 
-```bash
-# unit tests
-$ pnpm run test
+## Execução em ambiente Docker
 
-# e2e tests
-$ pnpm run test:e2e
+Para executar a aplicação usando Docker, basta executar o seguinte comando:
 
-# test coverage
-$ pnpm run test:cov
+```shell
+docker compose up -d
 ```
 
-## Support
+## Execução dos testes
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Para executar os testes da aplicação, basta executar o seguinte comando:
 
-## Stay in touch
+```shell
+yarn test:ci
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Com isso, os testes irão rodar e mostra a cobertura de %.
+![Porcentagem de cobertura dos testes](./out/docs/coverage.png)
 
-## License
+## Documentação
 
-Nest is [MIT licensed](LICENSE).
+A documentação da aplicação é feita usando Swagger e pode ser acessada no endereço `/swagger` da API.
+Para uso em ferramentas fora do navegador, como Postman ou Insomnia, o endereço `/swagger-json` pode ser utilizado.
+
+Sendo assim, se a aplicação estiver de pé localmente em um cluster kubernetes, via _minikube_ ou Docker Desktop, por exemplo, você pode acessar http://localhost:30001/swagger e http://localhost:30001/swagger-json .
+
+Já se estiver utilizando Docker, pode acessar em http://localhost:3333/swagger e http://localhost:3333/swagger-json .
+
+E se estiver utilizando o ambiente de desenvolvimento via `yarn`, basta acessar em http://localhost:3000/swagger e http://localhost:3000/swagger-json .
