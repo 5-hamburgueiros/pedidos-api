@@ -66,14 +66,14 @@ export class CreatePedidoUseCase implements ICreatePedido {
     pedido.fecharPedido();
     const requestPagamento = {
       idPedido: pedido.idPedido,
-      valorTotal: pedido.valor
+      valorPedido: pedido.valor
     }
     await axios
       .post(`${process.env.PAGAMENTO_API_URL}/pagamentos`, requestPagamento)
       .then(function (response) {
         const pagamento = new PagamentoEntity({
           id: response.data.id,
-          qrData: response.data.qrData,
+          qrData: response.data.qrCode,
           idExterno: response.data.idExterno,
         });
         pedido.addPagamento(pagamento);
