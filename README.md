@@ -61,3 +61,11 @@ Sendo assim, se a aplicação estiver de pé localmente em um cluster kubernetes
 Já se estiver utilizando Docker, pode acessar em http://localhost:3333/swagger e http://localhost:3333/swagger-json .
 
 E se estiver utilizando o ambiente de desenvolvimento via `yarn`, basta acessar em http://localhost:3000/swagger e http://localhost:3000/swagger-json .
+
+
+## OWASP ZAP
+Executamos o OWASP ZAP na geração de pedido, listagem de pedido e atualização do status do pedido
+
+Logo na primeira execução foi encontrada apenas um alerta do tipo 'Informational' que não chega nem ser um alerta de baixa prioridade, conforme relátorio abaixo.
+![Relatório OWASP ZAP HTML](./out/docs/ZAP%20Scanning%20Report.html)
+![Relatório OWASP ZAP PDF](./out/docs/2024-06-11-ZAP-Report-localhost.pdf)
