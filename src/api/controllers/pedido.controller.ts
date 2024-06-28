@@ -2,7 +2,6 @@ import { PedidoEntity } from '@/domain/entities';
 import { StatusPedido } from '@/domain/enum';
 import { ICreatePedido, IFindById, IFindPaginate } from '@/domain/use-cases';
 import { IUpdateStatusPedidoUseCase } from '@/domain/use-cases/pedidos/update-status-pedido.use-case';
-import { PedidoModelTypeOrm } from '@/infra/database/typerom/model';
 import {
   Body,
   Controller,
@@ -27,7 +26,6 @@ import {
 import { CreatePedidoDto } from '../dtos';
 import { UpdateStatusDto } from '../dtos/pagamento-pedido';
 import { AllowAnonymous } from '../middlewares/auth-guard.strategy';
-import { ObjectId } from 'typeorm';
 import { PaginacaoDto } from '../dtos/paginacao.dto';
 
 @ApiTags('Pedidos')
@@ -112,9 +110,9 @@ export class PedidoController {
   @ApiParam({ name: 'id' })
   @Patch(':id/status')
   async updateStatus(
-    @Param('id') id: string,
+    @Param('idPedido') idPedido: string,
     @Body() updateStatusDto: UpdateStatusDto,
   ): Promise<PedidoEntity> {
-    return this.updateStatusPedidoUseCase.execute({ id, ...updateStatusDto });
+    return this.updateStatusPedidoUseCase.execute({ idPedido, ...updateStatusDto });
   }
 }

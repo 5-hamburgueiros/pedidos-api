@@ -42,6 +42,7 @@ export class CreatePedidoUseCase implements ICreatePedido {
           paramsSerializer: { indexes: null },
         })
         .then(function (response) {
+          console.log("recebi itens", response.data.items)
           pedido.addItem(response.data.items);
         })
         .catch(function (error) {
@@ -56,6 +57,7 @@ export class CreatePedidoUseCase implements ICreatePedido {
           paramsSerializer: { indexes: null },
         })
         .then(function (response) {
+          console.log("recebi combos", response.data.items)
           pedido.addCombos(response.data.items);
         })
         .catch(function (error) {
@@ -79,6 +81,7 @@ export class CreatePedidoUseCase implements ICreatePedido {
         pedido.addPagamento(pagamento);
       })
       .catch(function (error) {
+        console.log("erro pagamentos", error);
         throw new GeracaoPagamentoException(
           'Falha ao chamar a api de pagamentos',
         );

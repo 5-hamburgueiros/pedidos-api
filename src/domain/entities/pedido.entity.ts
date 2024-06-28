@@ -8,8 +8,6 @@ import { ComboEntity } from './combo.entity';
 import { ItemEntity } from './item.entity';
 import { PagamentoEntity } from './pagamento.entity';
 import axios from 'axios';
-import { ClienteNaoLocalizadoException } from '../exceptions';
-import { async } from 'rxjs';
 
 export class PedidoEntity extends AbstractEntity {
   public _id: string;
@@ -103,22 +101,7 @@ export class PedidoEntity extends AbstractEntity {
     if (this.status !== StatusPedido.AGUARDANDO_PAGAMENTO) {
       throw new Error('Pedido não está aguardando pagamento');
     }
-
     this.status = StatusPedido.RECEBIDO;
-
-    const requestProducao = {
-      pedido: this.idPedido,
-      dataPedido: this.criadoEm
-    };
-    //fazer requisição para api de producao
-    const iniciarProducao = axios
-      .post(`${process.env.PRODUCAO_API_URL}/producao`, requestProducao )
-    .then(function (response) {
-      
-    })
-    .catch(function (error) {
-      console.log("erro ao iniciar producao")
-    });
   }
   public emPreparacao(): void {
     if (this.status !== StatusPedido.RECEBIDO) {
