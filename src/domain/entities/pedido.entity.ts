@@ -101,7 +101,7 @@ export class PedidoEntity extends AbstractEntity {
     if (this.status !== StatusPedido.AGUARDANDO_PAGAMENTO) {
       throw new Error('Pedido não está aguardando pagamento');
     }
-    this.status = StatusPedido.RECEBIDO;
+    this.status = StatusPedido.PAGO;
   }
   public emPreparacao(): void {
     if (this.status !== StatusPedido.RECEBIDO) {
