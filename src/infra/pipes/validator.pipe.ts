@@ -8,7 +8,7 @@ import {
 export class ValidatorPipe extends ValidationPipe {
   constructor(options?: ValidationPipeOptions) {
     super(options);
-    super.exceptionFactory = (errors) => this.factory(errors);
+    //super.exceptionFactory = (errors) => this.factory(errors);
   }
 
   factory(

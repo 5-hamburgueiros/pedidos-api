@@ -1,3 +1,4 @@
+import { StatusPedidoProducerService } from '@/api/services/messaging/status-pedido-producer.service';
 import { DefaultException } from '@/common/exceptions/default.exception';
 import { PedidoEntity } from '@/domain/entities';
 import { StatusPedido } from '@/domain/enum';
@@ -16,12 +17,13 @@ export class UpdateStatusPedidoUseCase implements IUpdateStatusPedidoUseCase {
   constructor(
     @Inject(IPedidoRepository)
     private readonly pedidoRepository: IPedidoRepository,
-  ) {}
+    private readonly statusPedidoProducerService: StatusPedidoProducerService,
+  ) { }
   async execute(
     params: IUpdateStatusPedidoUseCase.Params,
   ): Promise<IUpdateStatusPedidoUseCase.Result> {
     try {
-      const result = await this.pedidoRepository.findById({ id: params.id });
+      const result = await this.pedidoRepository.findById({ id: params.idPedido });
       if (!result) {
         throw new PedidoNaoLocalizadoException('Pedido não localizado');
       }
@@ -30,6 +32,7 @@ export class UpdateStatusPedidoUseCase implements IUpdateStatusPedidoUseCase {
       this.handleStatus(pedido, params.status);
       Object.assign(pedido, { id: result.idPedido });
 
+      console.log('pedido', pedido)
 
       await this.pedidoRepository.updatePayment({ pedido });
 
@@ -59,6 +62,7 @@ export class UpdateStatusPedidoUseCase implements IUpdateStatusPedidoUseCase {
         break;
       case StatusPedido.PAGO:
         pedido.pago();
+        this.statusPedidoProducerService.enviaPedidoCozinha(pedido);
         break;
       default:
         throw new StatusNaoPermitidoException('Status não permitido');

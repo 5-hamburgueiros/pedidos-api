@@ -1,10 +1,11 @@
 import { APP_NAME } from '@/common';
 import { SharedBullConfigurationFactory } from '@nestjs/bull';
-import { CacheModuleOptions, Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { QueueOptions } from 'bull';
 import redis, { Cluster, Redis } from 'ioredis';
 import { environment } from './environment';
+import { CacheModuleOptions } from '@nestjs/cache-manager';
 
 @Injectable()
 export class BullConfig implements SharedBullConfigurationFactory {
