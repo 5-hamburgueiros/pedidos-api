@@ -1,0 +1,4941 @@
+<!DOCTYPE html>
+<!-- saved from url=(0114)file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>ZAP Scanning Report</title>
+<link href="./ZAP Scanning Report_files/common.css" rel="stylesheet" type="text/css">
+<link href="./ZAP Scanning Report_files/light.css" rel="stylesheet" type="text/css">
+<script src="./ZAP Scanning Report_files/Chart.min.js.download" type="text/javascript"></script>
+<script type="text/javascript">
+    function showHide(id) {
+        showHideElement(id + "reqh");
+        showHideElement(id + "reqb");
+        showHideElement(id + "resph");
+        showHideElement(id + "respb");
+    }
+    function showHideElement(id) {
+        var x = document.getElementById(id);
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+<link rel="stylesheet" href="./ZAP Scanning Report_files/Chart.min.css">
+<style type="text/css">/* Chart.js */
+@keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style></head>
+<body>
+	<h1>
+		<!-- The ZAP Logo -->
+		<img src="./ZAP Scanning Report_files/zap32x32.png" alt="">
+		ZAP Scanning Report
+	</h1>
+	<p>
+	
+		API de Pedidos, Realizacao de pedidos, atualizacao de status, listagem de pedidos
+		
+	
+
+	</p><h3>
+		Generated on ter, 11 jun 2024 22:40:56
+	</h3>
+	<h3>
+		ZAP Version: 2.15.0
+	</h3>
+	<h4>
+		ZAP is supported by the <a href="https://crashoverride.com/?zap=rep">Crash
+			Override Open Source Fellowship</a>
+	</h4>
+	
+		<canvas id="summaryChart" width="687" height="375" style="border: 1px solid; display: block; height: 300px; width: 550px;"></canvas>
+		<script type="text/javascript">
+            /*<![CDATA[*/
+            var title = "Alert Chart";
+            var labels = [
+            "Alto",
+            "M\u00E9dio",
+            "Baixo",
+            "Informativo"];
+            var data = [
+            null,
+            null,
+            null,
+            1];
+            /*]]>*/
+            new Chart(document.getElementById("summaryChart"),
+                    {
+                        "type" : "bar",
+                        "data" : {
+                            "labels" : labels,
+                            "datasets" : [ {
+                                "label" : title,
+                                "data" : data,
+                                "fill" : false,
+                                "backgroundColor" : [ "red", "orange",
+                                        "yellow", "blue" ],
+                                "borderWidth" : 1
+                            } ]
+                        },
+                        "options" : {
+                            "scales" : {
+                                "yAxes" : [ {
+                                    "ticks" : {
+                                        "beginAtZero" : true
+                                    }
+                                } ]
+                            },
+                            responsive : false
+                        }
+                    });
+        </script>
+		<p></p>
+	
+
+	
+		<h3 class="left-header">Summary of Alerts</h3>
+		<table class="summary">
+			<tbody><tr>
+				<th width="45%" height="24">Nível de Risco</th>
+				<th width="55%" align="center">Number of Alerts</th>
+			</tr>
+			<tr>
+				<td class="risk-3">
+					<div>Alto</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-2">
+					<div>Médio</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-1">
+					<div>Baixo</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-0">
+					<div>Informativo</div>
+				</td>
+				<td align="center">
+					<div>1</div>
+				</td>
+			</tr>
+			
+		</tbody></table>
+		<div class="spacer-lg"></div>
+	
+
+	
+		<h3>Alertas</h3>
+		<table class="alerts">
+			<tbody><tr>
+				<th width="60%" height="24">Nome</th>
+				<th width="20%" align="center">Nível de Risco</th>
+				<th width="20%" align="center">Number of Instances</th>
+			</tr>
+			<tr>
+				<td><a href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#plugin-10104">User Agent Fuzzer</a></td>
+				<td align="center" class="risk-0">Informativo</td>
+				<td align="center">24</td>
+			</tr>
+		</tbody></table>
+		<div class="spacer-lg"></div>
+	
+
+	
+		<h3>Passing Rules</h3>
+		<table class="alerts">
+			<tbody><tr>
+				<th width="55%" height="24">Nome</th>
+				<th width="15%" align="center">Rule Type</th>
+				<th width="15%" align="center">Threshold</th>
+				<th width="15%" align="center">Strength</th>
+			</tr>
+			
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/0/">Navegação no Diretório</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40003/">Injeção CRLF</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/6/">Travessia/Passagem de Caminho</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/7/">Inclusão de Arquivo Remoto</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40008/">Adulteração de parâmetros</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40009/">Incluir Lado do Servidor</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10058/">GET for POST</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40012/">Cross Site Scripting (Refletido)</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40014/">Cross Site Scripting (Persistente)</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/50000/">Regras de Varredura Ativa</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40016/">Cross Site Scripting (Persistente) - Primário</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40017/">Cross Site Scripting (Persistente) - Spider</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40018/">Injeção SQL</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40019/">Injeção SQL - MySQL</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40020/">Injeção SQL - Hypersonic SQL</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40021/">Injeção SQL - Oracle</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40022/">Injeção SQL - PostgreSQL</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40024/">Injeção SQL - SQLite</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40026/">Cross Site Scripting (baseado em DOM)</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40027/">Injeção SQL - MsSQL</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40028/">Vazamento de Informação ELMAH</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40029/">Trace.axd Vazamento de Informação</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90017/">Injeção XSLT</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40032/">Vazamento de informações .htaccess</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40034/">.env Information Leak</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90019/">Injeção de Código no Lado do Servidor</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40035/">Hidden File Finder</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90021/">Injeção XPath</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90020/">Injeção Remota de Comandos de SO</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90023/">XML External Entity Attack</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90024/">Oracle Padding Genérico</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40042/">Spring Actuator Information Leak</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90026/">Spoofing de Ação SOAP</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40043/">Log4Shell</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90029/">Injeção de SOAP XML</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/40045/">Spring4Shell</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/20015/">Vulnerabilidade OpenSSL Heartbleed</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/30001/">Estouro de Buffer</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/20017/">Divulgação de Código-Fonte - CVE-2012-1823</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/30002/">Erro de Formato de String</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90035/">Server Side Template Injection</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/20018/">Execução Remota de Código - CVE-2012-1823</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90034/">Metadados de nuvem potencialmente expostos</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/20019/">Redirecionamento Externo</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90036/">Server Side Template Injection (Blind)</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10045/">Source Code Disclosure - /WEB-INF Folder</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+			
+			
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10112/">Session Management Response Identified</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10113/">Verification Request Identified</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/2/">Private IP Disclosure</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/3/">Session ID in URL Rewrite</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90001/">Viewstate JSF Inseguro</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10003/">Vulnerable JS Library (Powered by Retire.js)</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90011/">Má Combinação de Charset</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10010/">Cookie No HttpOnly Flag</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10011/">Cookie Without Secure Flag</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10015/">Re-examine Cache-control Directives</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10017/">Cross-Domain JavaScript Source File Inclusion</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10019/">Content-Type Header Missing</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10020/">Anti-clickjacking Header</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10021/">X-Content-Type-Options Header Missing</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90022/">Application Error Disclosure</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10023/">Divulgação de informações - Mensagens de Erro de Depuração</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10024/">Information Disclosure - Sensitive Information in URL</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10025/">Divulgação de Informações - Informações Confidenciais no Cabeçalho de Referência HTTP</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10027/">Divulgação de Informações - Comentários Suspeitos</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10028/">Open Redirect</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10029/">Cookie Poisoning</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10030/">User Controllable Charset</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10031/">User Controllable HTML Element Attribute (Potential XSS)</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90030/">Detecção de arquivo WSDL</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/90033/">Cookie com Escopo Fraco</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10032/">Viewstate</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10033/">Navegação no Diretório</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10034/">Heartbleed OpenSSL Vulnerability (Indicative)</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10035/">Strict-Transport-Security Header</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10036/">HTTP Server Response Header</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10037/">O servidor vaza informações por meio dos campos de cabeçalho de resposta HTTP "X-Powered-By"</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10038/">Content Security Policy (CSP) Header Not Set</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10039/">X-Backend-Server Header Information Leak</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10040/">Secure Pages Include Mixed Content</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10041/">HTTP to HTTPS Insecure Transition in Form Post</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10042/">HTTPS to HTTP Insecure Transition in Form Post</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10043/">User Controllable JavaScript Event (XSS)</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10044/">Big Redirect Detected (Potential Sensitive Information Leak)</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10050/">Retrieved from Cache</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10052/">X-ChromeLogger-Data (XCOLD) Header Information Leak</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10054/">Cookie without SameSite Attribute</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10055/">CSP</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10056/">Vazamento de Informações do X-Debug-Token</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10057/">Hash de Nome de Usuário Encontrado</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10061/">X-AspNet-Version Response Header</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10062/">PII Disclosure</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/50001/">Regras de Script de Varredura Passiva</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/50003/">Estatísticas de Regra de Varredura Passiva</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10202/">Ausência de tokens Anti-CSRF</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10096/">Divulgação de Data e Hora</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10097/">Hash Disclosure</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10098/">Configuração Incorreta Entre Domínios</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10105/">Método Fraco de Autenticação</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10108/">Reverse Tabnabbing</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10109/">Modern Web Application</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a href="https://www.zaproxy.org/docs/alerts/10111/">Authentication Request Identified</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+			
+		</tbody></table>
+		<div class="spacer-lg"></div>
+	
+
+	<h2>Sites</h2>
+
+	<strong>Number of Sites tree nodes actively scanned:</strong>
+	18
+
+	
+		<h3>http://localhost:3000</h3>
+		
+			<table class="summary">
+				<tbody><tr>
+					<th width="45%" height="24">HTTP Response Code</th>
+					<th width="55%" align="center">Number of Responses</th>
+				</tr>
+
+				
+					<tr>
+						<td><a href="https://developer.mozilla.org/docs/Web/HTTP/Status/404">404 Not Found</a>
+						</td>
+						<td align="center">
+							<div>3213</div>
+						</td>
+					</tr>
+					
+				
+					<tr>
+						<td><a href="https://developer.mozilla.org/docs/Web/HTTP/Status/200">200 OK</a>
+						</td>
+						<td align="center">
+							<div>303</div>
+						</td>
+					</tr>
+					
+				
+					<tr>
+						<td><a href="https://developer.mozilla.org/docs/Web/HTTP/Status/201">201 Created</a>
+						</td>
+						<td align="center">
+							<div>1</div>
+						</td>
+					</tr>
+					
+				
+					<tr>
+						<td><a href="https://developer.mozilla.org/docs/Web/HTTP/Status/400">400 Bad Request</a>
+						</td>
+						<td align="center">
+							<div>1285</div>
+						</td>
+					</tr>
+					
+				
+					<tr>
+						<td><a href="https://developer.mozilla.org/docs/Web/HTTP/Status/500">500 Internal Server Error</a>
+						</td>
+						<td align="center">
+							<div>38</div>
+						</td>
+					</tr>
+					
+				
+			</tbody></table>
+			<div class="spacer-lg"></div>
+			<h4>No Authentication Statistics Found</h4>
+			
+		
+		
+
+		
+			<table class="summary">
+				<tbody><tr>
+					<th>Parameter Name</th>
+					<th>Type</th>
+					<th>Flags</th>
+					<th>Times Used</th>
+					<th># Values</th>
+				</tr>
+
+				
+					<tr>
+						<td>
+							<div>limite</div>
+						</td>
+						<td>
+							<div>URL</div>
+						</td>
+						<td></td>
+						<td>
+							<div>3</div>
+						</td>
+						<td>
+							<div>1</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>pagina</div>
+						</td>
+						<td>
+							<div>URL</div>
+						</td>
+						<td></td>
+						<td>
+							<div>3</div>
+						</td>
+						<td>
+							<div>1</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>status</div>
+						</td>
+						<td>
+							<div>URL</div>
+						</td>
+						<td></td>
+						<td>
+							<div>3</div>
+						</td>
+						<td>
+							<div>1</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>Connection</div>
+						</td>
+						<td>
+							<div>Cabeçalho</div>
+						</td>
+						<td></td>
+						<td>
+							<div>18</div>
+						</td>
+						<td>
+							<div>1</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>Content-Length</div>
+						</td>
+						<td>
+							<div>Cabeçalho</div>
+						</td>
+						<td></td>
+						<td>
+							<div>18</div>
+						</td>
+						<td>
+							<div>13</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>Content-Type</div>
+						</td>
+						<td>
+							<div>Cabeçalho</div>
+						</td>
+						<td></td>
+						<td>
+							<div>18</div>
+						</td>
+						<td>
+							<div>1</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>Date</div>
+						</td>
+						<td>
+							<div>Cabeçalho</div>
+						</td>
+						<td></td>
+						<td>
+							<div>18</div>
+						</td>
+						<td>
+							<div>8</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>ETag</div>
+						</td>
+						<td>
+							<div>Cabeçalho</div>
+						</td>
+						<td></td>
+						<td>
+							<div>18</div>
+						</td>
+						<td>
+							<div>15</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>Keep-Alive</div>
+						</td>
+						<td>
+							<div>Cabeçalho</div>
+						</td>
+						<td></td>
+						<td>
+							<div>18</div>
+						</td>
+						<td>
+							<div>1</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>X-Powered-By</div>
+						</td>
+						<td>
+							<div>Cabeçalho</div>
+						</td>
+						<td></td>
+						<td>
+							<div>18</div>
+						</td>
+						<td>
+							<div>1</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>x-correlation-id</div>
+						</td>
+						<td>
+							<div>Cabeçalho</div>
+						</td>
+						<td></td>
+						<td>
+							<div>18</div>
+						</td>
+						<td>
+							<div>18</div>
+						</td>
+					</tr>
+				
+			</tbody></table>
+		
+
+		<div class="spacer-lg"></div>
+	
+
+	
+		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tbody><tr height="24">
+					<th width="20%" class="risk-0"><a id="plugin-10104"></a>
+						<div>Informativo</div></th>
+					<th class="risk-0">User Agent Fuzzer</th>
+				</tr>
+				<tr>
+					<td width="20%">Descrição</td>
+					<td width="80%">
+							<div>Check for differences in response based on fuzzed User Agent (eg. mobile sites, access as a Search Engine Crawler). Compares the response statuscode and the hashcode of the response body with the original response.</div>
+							
+						</td>
+				</tr>
+				<tr valign="top">
+					<td colspan="2"></td>
+				</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status">http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">PATCH</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-3">
+								<a onclick="showHide(&#39;alert-3&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-3">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 417 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-3reqh" style="display: none;">
+								
+									PATCH http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)
+									<br>
+								
+									Postman-Token: 37145eba-6242-4e77-8f51-add1f2606746
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 22
+									<br>
+								
+									Referer: http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 22 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-3reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "status": "PAGO"
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 310 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-3resph" style="display: none;">
+								
+									HTTP/1.1 500 Internal Server Error
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: df0f9453-253e-4e73-b593-e2b867752a6d
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 96
+									<br>
+								
+									ETag: W/"60-g37RGDVO0DQz0Nx9D9nHWa5eZLQ"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:35 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 96 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-3respb" style="display: none;">
+								
+									{"errors":[{"code":"INTERNAL_SERVER_ERROR","message":"Pedido não está aguardando pagamento"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status">http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">PATCH</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-1">
+								<a onclick="showHide(&#39;alert-1&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-1">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 417 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-1reqh" style="display: none;">
+								
+									PATCH http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)
+									<br>
+								
+									Postman-Token: 37145eba-6242-4e77-8f51-add1f2606746
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 22
+									<br>
+								
+									Referer: http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 22 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-1reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "status": "PAGO"
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 310 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-1resph" style="display: none;">
+								
+									HTTP/1.1 500 Internal Server Error
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: 95da8b4b-bf25-4f52-add1-69d51a24f7c4
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 96
+									<br>
+								
+									ETag: W/"60-g37RGDVO0DQz0Nx9D9nHWa5eZLQ"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:35 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 96 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-1respb" style="display: none;">
+								
+									{"errors":[{"code":"INTERNAL_SERVER_ERROR","message":"Pedido não está aguardando pagamento"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status">http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">PATCH</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-0">
+								<a onclick="showHide(&#39;alert-0&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-0">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 417 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-0reqh" style="display: none;">
+								
+									PATCH http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)
+									<br>
+								
+									Postman-Token: 37145eba-6242-4e77-8f51-add1f2606746
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 22
+									<br>
+								
+									Referer: http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 22 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-0reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "status": "PAGO"
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 310 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-0resph" style="display: none;">
+								
+									HTTP/1.1 500 Internal Server Error
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: d2e43f7c-7e63-4a40-96a0-0a14e935bfde
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 96
+									<br>
+								
+									ETag: W/"60-g37RGDVO0DQz0Nx9D9nHWa5eZLQ"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:35 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 96 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-0respb" style="display: none;">
+								
+									{"errors":[{"code":"INTERNAL_SERVER_ERROR","message":"Pedido não está aguardando pagamento"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status">http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">PATCH</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-4">
+								<a onclick="showHide(&#39;alert-4&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-4">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 429 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-4reqh" style="display: none;">
+								
+									PATCH http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko
+									<br>
+								
+									Postman-Token: 37145eba-6242-4e77-8f51-add1f2606746
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 22
+									<br>
+								
+									Referer: http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 22 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-4reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "status": "PAGO"
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 310 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-4resph" style="display: none;">
+								
+									HTTP/1.1 500 Internal Server Error
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: 487023c3-f3f0-49da-b270-e2768236c524
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 96
+									<br>
+								
+									ETag: W/"60-g37RGDVO0DQz0Nx9D9nHWa5eZLQ"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:35 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 96 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-4respb" style="display: none;">
+								
+									{"errors":[{"code":"INTERNAL_SERVER_ERROR","message":"Pedido não está aguardando pagamento"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status">http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">PATCH</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3739.0 Safari/537.36 Edg/75.0.109.0</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-5">
+								<a onclick="showHide(&#39;alert-5&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-5">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 495 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-5reqh" style="display: none;">
+								
+									PATCH http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3739.0 Safari/537.36 Edg/75.0.109.0
+									<br>
+								
+									Postman-Token: 37145eba-6242-4e77-8f51-add1f2606746
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 22
+									<br>
+								
+									Referer: http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 22 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-5reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "status": "PAGO"
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 310 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-5resph" style="display: none;">
+								
+									HTTP/1.1 500 Internal Server Error
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: 9d59412d-eaed-494e-93b2-de33c11e84a0
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 96
+									<br>
+								
+									ETag: W/"60-g37RGDVO0DQz0Nx9D9nHWa5eZLQ"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:35 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 96 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-5respb" style="display: none;">
+								
+									{"errors":[{"code":"INTERNAL_SERVER_ERROR","message":"Pedido não está aguardando pagamento"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status">http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">PATCH</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-16">
+								<a onclick="showHide(&#39;alert-16&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-16">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 482 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-16reqh" style="display: none;">
+								
+									PATCH http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
+									<br>
+								
+									Postman-Token: 37145eba-6242-4e77-8f51-add1f2606746
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 22
+									<br>
+								
+									Referer: http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 22 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-16reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "status": "PAGO"
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 310 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-16resph" style="display: none;">
+								
+									HTTP/1.1 500 Internal Server Error
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: 879a8284-786c-40cb-a412-a42519d33a79
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 96
+									<br>
+								
+									ETag: W/"60-g37RGDVO0DQz0Nx9D9nHWa5eZLQ"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 96 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-16respb" style="display: none;">
+								
+									{"errors":[{"code":"INTERNAL_SERVER_ERROR","message":"Pedido não está aguardando pagamento"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status">http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">PATCH</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/91.0</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-14">
+								<a onclick="showHide(&#39;alert-14&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-14">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 445 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-14reqh" style="display: none;">
+								
+									PATCH http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/91.0
+									<br>
+								
+									Postman-Token: 37145eba-6242-4e77-8f51-add1f2606746
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 22
+									<br>
+								
+									Referer: http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 22 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-14reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "status": "PAGO"
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 310 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-14resph" style="display: none;">
+								
+									HTTP/1.1 500 Internal Server Error
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: a907f263-66ba-4890-8bde-d60e8a68c879
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 96
+									<br>
+								
+									ETag: W/"60-g37RGDVO0DQz0Nx9D9nHWa5eZLQ"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 96 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-14respb" style="display: none;">
+								
+									{"errors":[{"code":"INTERNAL_SERVER_ERROR","message":"Pedido não está aguardando pagamento"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status">http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">PATCH</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-7">
+								<a onclick="showHide(&#39;alert-7&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-7">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 439 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-7reqh" style="display: none;">
+								
+									PATCH http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+									<br>
+								
+									Postman-Token: 37145eba-6242-4e77-8f51-add1f2606746
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 22
+									<br>
+								
+									Referer: http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 22 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-7reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "status": "PAGO"
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 310 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-7resph" style="display: none;">
+								
+									HTTP/1.1 500 Internal Server Error
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: c9b4067b-fae6-419f-9515-da1f46013f8f
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 96
+									<br>
+								
+									ETag: W/"60-g37RGDVO0DQz0Nx9D9nHWa5eZLQ"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 96 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-7respb" style="display: none;">
+								
+									{"errors":[{"code":"INTERNAL_SERVER_ERROR","message":"Pedido não está aguardando pagamento"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status">http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">PATCH</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-9">
+								<a onclick="showHide(&#39;alert-9&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-9">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 450 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-9reqh" style="display: none;">
+								
+									PATCH http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)
+									<br>
+								
+									Postman-Token: 37145eba-6242-4e77-8f51-add1f2606746
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 22
+									<br>
+								
+									Referer: http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 22 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-9reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "status": "PAGO"
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 310 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-9resph" style="display: none;">
+								
+									HTTP/1.1 500 Internal Server Error
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: 13db089e-48ec-45de-a051-8cacd6262e09
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 96
+									<br>
+								
+									ETag: W/"60-g37RGDVO0DQz0Nx9D9nHWa5eZLQ"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 96 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-9respb" style="display: none;">
+								
+									{"errors":[{"code":"INTERNAL_SERVER_ERROR","message":"Pedido não está aguardando pagamento"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status">http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">PATCH</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A366 Safari/600.1.4</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-12">
+								<a onclick="showHide(&#39;alert-12&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-12">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 503 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-12reqh" style="display: none;">
+								
+									PATCH http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A366 Safari/600.1.4
+									<br>
+								
+									Postman-Token: 37145eba-6242-4e77-8f51-add1f2606746
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 22
+									<br>
+								
+									Referer: http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 22 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-12reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "status": "PAGO"
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 310 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-12resph" style="display: none;">
+								
+									HTTP/1.1 500 Internal Server Error
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: 0f14de83-94c5-4c75-84e1-4baa16a82084
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 96
+									<br>
+								
+									ETag: W/"60-g37RGDVO0DQz0Nx9D9nHWa5eZLQ"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 96 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-12respb" style="display: none;">
+								
+									{"errors":[{"code":"INTERNAL_SERVER_ERROR","message":"Pedido não está aguardando pagamento"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status">http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">PATCH</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-10">
+								<a onclick="showHide(&#39;alert-10&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-10">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 508 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-10reqh" style="display: none;">
+								
+									PATCH http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16
+									<br>
+								
+									Postman-Token: 37145eba-6242-4e77-8f51-add1f2606746
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 22
+									<br>
+								
+									Referer: http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 22 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-10reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "status": "PAGO"
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 310 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-10resph" style="display: none;">
+								
+									HTTP/1.1 500 Internal Server Error
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: 9d1fd325-fd87-40bd-9c68-218449d05d38
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 96
+									<br>
+								
+									ETag: W/"60-g37RGDVO0DQz0Nx9D9nHWa5eZLQ"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 96 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-10respb" style="display: none;">
+								
+									{"errors":[{"code":"INTERNAL_SERVER_ERROR","message":"Pedido não está aguardando pagamento"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status">http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">PATCH</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">msnbot/1.1 (+http://search.msn.com/msnbot.htm)</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-8">
+								<a onclick="showHide(&#39;alert-8&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-8">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 413 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-8reqh" style="display: none;">
+								
+									PATCH http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: msnbot/1.1 (+http://search.msn.com/msnbot.htm)
+									<br>
+								
+									Postman-Token: 37145eba-6242-4e77-8f51-add1f2606746
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 22
+									<br>
+								
+									Referer: http://localhost:3000/pedidos/8c27d46d-eefa-446a-ab6f-d991a5ad30fd/status
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 22 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-8reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "status": "PAGO"
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 310 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-8resph" style="display: none;">
+								
+									HTTP/1.1 500 Internal Server Error
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: 61a5f052-c147-4c2d-983f-1e69725ab635
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 96
+									<br>
+								
+									ETag: W/"60-g37RGDVO0DQz0Nx9D9nHWa5eZLQ"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 96 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-8respb" style="display: none;">
+								
+									{"errors":[{"code":"INTERNAL_SERVER_ERROR","message":"Pedido não está aguardando pagamento"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos">http://localhost:3000/pedidos</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-11">
+								<a onclick="showHide(&#39;alert-11&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-11">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 329 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-11reqh" style="display: none;">
+								
+									POST http://localhost:3000/pedidos HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)
+									<br>
+								
+									Postman-Token: 4a7f9207-e7d4-4d73-b44c-127de5806db9
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 195
+									<br>
+								
+									Referer: http://localhost:3000/pedidos
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 195 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-11reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "cliente": "44175516859",
+									<br>
+								
+									  "itens": [
+									<br>
+								
+									    "5eca5ab4-a3a5-47f5-afb8-5a67256bd24b",
+									<br>
+								
+											"f83829e1-e1c3-4eab-a9e6-a223b03da6e7"
+									<br>
+								
+									  ],
+									<br>
+								
+									  "combos": [
+									<br>
+								
+									    "92066b90-e93a-413b-bb83-ec3d7e543dad"
+									<br>
+								
+									  ]
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 300 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-11resph" style="display: none;">
+								
+									HTTP/1.1 400 Bad Request
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: 9e5c3eb2-05f8-4b05-a06b-5e1a368cff19
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 90
+									<br>
+								
+									ETag: W/"5a-zDY4eWmNS66G46uLVvgKWHUis7w"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 90 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-11respb" style="display: none;">
+								
+									{"errors":[{"code":"PEDIDO_VAZIO","message":"O pedido não possui nenhum item ou combo"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos">http://localhost:3000/pedidos</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-6">
+								<a onclick="showHide(&#39;alert-6&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-6">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 329 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-6reqh" style="display: none;">
+								
+									POST http://localhost:3000/pedidos HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)
+									<br>
+								
+									Postman-Token: 4a7f9207-e7d4-4d73-b44c-127de5806db9
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 195
+									<br>
+								
+									Referer: http://localhost:3000/pedidos
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 195 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-6reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "cliente": "44175516859",
+									<br>
+								
+									  "itens": [
+									<br>
+								
+									    "5eca5ab4-a3a5-47f5-afb8-5a67256bd24b",
+									<br>
+								
+											"f83829e1-e1c3-4eab-a9e6-a223b03da6e7"
+									<br>
+								
+									  ],
+									<br>
+								
+									  "combos": [
+									<br>
+								
+									    "92066b90-e93a-413b-bb83-ec3d7e543dad"
+									<br>
+								
+									  ]
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 300 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-6resph" style="display: none;">
+								
+									HTTP/1.1 400 Bad Request
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: 3520e350-4a75-453f-82ef-cf52c003b722
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 90
+									<br>
+								
+									ETag: W/"5a-zDY4eWmNS66G46uLVvgKWHUis7w"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 90 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-6respb" style="display: none;">
+								
+									{"errors":[{"code":"PEDIDO_VAZIO","message":"O pedido não possui nenhum item ou combo"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos">http://localhost:3000/pedidos</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-2">
+								<a onclick="showHide(&#39;alert-2&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-2">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 329 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-2reqh" style="display: none;">
+								
+									POST http://localhost:3000/pedidos HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)
+									<br>
+								
+									Postman-Token: 4a7f9207-e7d4-4d73-b44c-127de5806db9
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 195
+									<br>
+								
+									Referer: http://localhost:3000/pedidos
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 195 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-2reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "cliente": "44175516859",
+									<br>
+								
+									  "itens": [
+									<br>
+								
+									    "5eca5ab4-a3a5-47f5-afb8-5a67256bd24b",
+									<br>
+								
+											"f83829e1-e1c3-4eab-a9e6-a223b03da6e7"
+									<br>
+								
+									  ],
+									<br>
+								
+									  "combos": [
+									<br>
+								
+									    "92066b90-e93a-413b-bb83-ec3d7e543dad"
+									<br>
+								
+									  ]
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 300 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-2resph" style="display: none;">
+								
+									HTTP/1.1 400 Bad Request
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: a1b34c85-4d3a-4415-8e81-443203332f05
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 90
+									<br>
+								
+									ETag: W/"5a-zDY4eWmNS66G46uLVvgKWHUis7w"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:35 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 90 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-2respb" style="display: none;">
+								
+									{"errors":[{"code":"PEDIDO_VAZIO","message":"O pedido não possui nenhum item ou combo"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos">http://localhost:3000/pedidos</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-13">
+								<a onclick="showHide(&#39;alert-13&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-13">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 341 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-13reqh" style="display: none;">
+								
+									POST http://localhost:3000/pedidos HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko
+									<br>
+								
+									Postman-Token: 4a7f9207-e7d4-4d73-b44c-127de5806db9
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 195
+									<br>
+								
+									Referer: http://localhost:3000/pedidos
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 195 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-13reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "cliente": "44175516859",
+									<br>
+								
+									  "itens": [
+									<br>
+								
+									    "5eca5ab4-a3a5-47f5-afb8-5a67256bd24b",
+									<br>
+								
+											"f83829e1-e1c3-4eab-a9e6-a223b03da6e7"
+									<br>
+								
+									  ],
+									<br>
+								
+									  "combos": [
+									<br>
+								
+									    "92066b90-e93a-413b-bb83-ec3d7e543dad"
+									<br>
+								
+									  ]
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 300 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-13resph" style="display: none;">
+								
+									HTTP/1.1 400 Bad Request
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: 7760b149-1c4b-481e-ada0-55113a9f1d6d
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 90
+									<br>
+								
+									ETag: W/"5a-zDY4eWmNS66G46uLVvgKWHUis7w"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 90 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-13respb" style="display: none;">
+								
+									{"errors":[{"code":"PEDIDO_VAZIO","message":"O pedido não possui nenhum item ou combo"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos">http://localhost:3000/pedidos</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3739.0 Safari/537.36 Edg/75.0.109.0</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-15">
+								<a onclick="showHide(&#39;alert-15&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-15">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 407 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-15reqh" style="display: none;">
+								
+									POST http://localhost:3000/pedidos HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3739.0 Safari/537.36 Edg/75.0.109.0
+									<br>
+								
+									Postman-Token: 4a7f9207-e7d4-4d73-b44c-127de5806db9
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 195
+									<br>
+								
+									Referer: http://localhost:3000/pedidos
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 195 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-15reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "cliente": "44175516859",
+									<br>
+								
+									  "itens": [
+									<br>
+								
+									    "5eca5ab4-a3a5-47f5-afb8-5a67256bd24b",
+									<br>
+								
+											"f83829e1-e1c3-4eab-a9e6-a223b03da6e7"
+									<br>
+								
+									  ],
+									<br>
+								
+									  "combos": [
+									<br>
+								
+									    "92066b90-e93a-413b-bb83-ec3d7e543dad"
+									<br>
+								
+									  ]
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 300 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-15resph" style="display: none;">
+								
+									HTTP/1.1 400 Bad Request
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: aa12bb4a-046c-4895-a6c8-30cf5222f911
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 90
+									<br>
+								
+									ETag: W/"5a-zDY4eWmNS66G46uLVvgKWHUis7w"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 90 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-15respb" style="display: none;">
+								
+									{"errors":[{"code":"PEDIDO_VAZIO","message":"O pedido não possui nenhum item ou combo"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos">http://localhost:3000/pedidos</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-23">
+								<a onclick="showHide(&#39;alert-23&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-23">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 394 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-23reqh" style="display: none;">
+								
+									POST http://localhost:3000/pedidos HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
+									<br>
+								
+									Postman-Token: 4a7f9207-e7d4-4d73-b44c-127de5806db9
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 195
+									<br>
+								
+									Referer: http://localhost:3000/pedidos
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 195 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-23reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "cliente": "44175516859",
+									<br>
+								
+									  "itens": [
+									<br>
+								
+									    "5eca5ab4-a3a5-47f5-afb8-5a67256bd24b",
+									<br>
+								
+											"f83829e1-e1c3-4eab-a9e6-a223b03da6e7"
+									<br>
+								
+									  ],
+									<br>
+								
+									  "combos": [
+									<br>
+								
+									    "92066b90-e93a-413b-bb83-ec3d7e543dad"
+									<br>
+								
+									  ]
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 300 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-23resph" style="display: none;">
+								
+									HTTP/1.1 400 Bad Request
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: 95dbd79a-a7a7-486a-a578-67c474734588
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 90
+									<br>
+								
+									ETag: W/"5a-zDY4eWmNS66G46uLVvgKWHUis7w"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 90 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-23respb" style="display: none;">
+								
+									{"errors":[{"code":"PEDIDO_VAZIO","message":"O pedido não possui nenhum item ou combo"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos">http://localhost:3000/pedidos</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/91.0</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-22">
+								<a onclick="showHide(&#39;alert-22&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-22">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 357 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-22reqh" style="display: none;">
+								
+									POST http://localhost:3000/pedidos HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/91.0
+									<br>
+								
+									Postman-Token: 4a7f9207-e7d4-4d73-b44c-127de5806db9
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 195
+									<br>
+								
+									Referer: http://localhost:3000/pedidos
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 195 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-22reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "cliente": "44175516859",
+									<br>
+								
+									  "itens": [
+									<br>
+								
+									    "5eca5ab4-a3a5-47f5-afb8-5a67256bd24b",
+									<br>
+								
+											"f83829e1-e1c3-4eab-a9e6-a223b03da6e7"
+									<br>
+								
+									  ],
+									<br>
+								
+									  "combos": [
+									<br>
+								
+									    "92066b90-e93a-413b-bb83-ec3d7e543dad"
+									<br>
+								
+									  ]
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 300 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-22resph" style="display: none;">
+								
+									HTTP/1.1 400 Bad Request
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: 53ba8e3d-60d6-48fb-b97c-7e47c67e2023
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 90
+									<br>
+								
+									ETag: W/"5a-zDY4eWmNS66G46uLVvgKWHUis7w"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 90 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-22respb" style="display: none;">
+								
+									{"errors":[{"code":"PEDIDO_VAZIO","message":"O pedido não possui nenhum item ou combo"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos">http://localhost:3000/pedidos</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-17">
+								<a onclick="showHide(&#39;alert-17&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-17">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 351 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-17reqh" style="display: none;">
+								
+									POST http://localhost:3000/pedidos HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+									<br>
+								
+									Postman-Token: 4a7f9207-e7d4-4d73-b44c-127de5806db9
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 195
+									<br>
+								
+									Referer: http://localhost:3000/pedidos
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 195 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-17reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "cliente": "44175516859",
+									<br>
+								
+									  "itens": [
+									<br>
+								
+									    "5eca5ab4-a3a5-47f5-afb8-5a67256bd24b",
+									<br>
+								
+											"f83829e1-e1c3-4eab-a9e6-a223b03da6e7"
+									<br>
+								
+									  ],
+									<br>
+								
+									  "combos": [
+									<br>
+								
+									    "92066b90-e93a-413b-bb83-ec3d7e543dad"
+									<br>
+								
+									  ]
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 300 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-17resph" style="display: none;">
+								
+									HTTP/1.1 400 Bad Request
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: b5bc61f3-b47c-4b61-8054-15e0b0ab69b6
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 90
+									<br>
+								
+									ETag: W/"5a-zDY4eWmNS66G46uLVvgKWHUis7w"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 90 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-17respb" style="display: none;">
+								
+									{"errors":[{"code":"PEDIDO_VAZIO","message":"O pedido não possui nenhum item ou combo"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos">http://localhost:3000/pedidos</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-19">
+								<a onclick="showHide(&#39;alert-19&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-19">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 362 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-19reqh" style="display: none;">
+								
+									POST http://localhost:3000/pedidos HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)
+									<br>
+								
+									Postman-Token: 4a7f9207-e7d4-4d73-b44c-127de5806db9
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 195
+									<br>
+								
+									Referer: http://localhost:3000/pedidos
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 195 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-19reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "cliente": "44175516859",
+									<br>
+								
+									  "itens": [
+									<br>
+								
+									    "5eca5ab4-a3a5-47f5-afb8-5a67256bd24b",
+									<br>
+								
+											"f83829e1-e1c3-4eab-a9e6-a223b03da6e7"
+									<br>
+								
+									  ],
+									<br>
+								
+									  "combos": [
+									<br>
+								
+									    "92066b90-e93a-413b-bb83-ec3d7e543dad"
+									<br>
+								
+									  ]
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 300 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-19resph" style="display: none;">
+								
+									HTTP/1.1 400 Bad Request
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: c137fd6f-47fe-4f45-ae5a-f496ba9f371f
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 90
+									<br>
+								
+									ETag: W/"5a-zDY4eWmNS66G46uLVvgKWHUis7w"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 90 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-19respb" style="display: none;">
+								
+									{"errors":[{"code":"PEDIDO_VAZIO","message":"O pedido não possui nenhum item ou combo"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos">http://localhost:3000/pedidos</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A366 Safari/600.1.4</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-21">
+								<a onclick="showHide(&#39;alert-21&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-21">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 415 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-21reqh" style="display: none;">
+								
+									POST http://localhost:3000/pedidos HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A366 Safari/600.1.4
+									<br>
+								
+									Postman-Token: 4a7f9207-e7d4-4d73-b44c-127de5806db9
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 195
+									<br>
+								
+									Referer: http://localhost:3000/pedidos
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 195 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-21reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "cliente": "44175516859",
+									<br>
+								
+									  "itens": [
+									<br>
+								
+									    "5eca5ab4-a3a5-47f5-afb8-5a67256bd24b",
+									<br>
+								
+											"f83829e1-e1c3-4eab-a9e6-a223b03da6e7"
+									<br>
+								
+									  ],
+									<br>
+								
+									  "combos": [
+									<br>
+								
+									    "92066b90-e93a-413b-bb83-ec3d7e543dad"
+									<br>
+								
+									  ]
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 300 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-21resph" style="display: none;">
+								
+									HTTP/1.1 400 Bad Request
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: 706cca26-d9b0-429b-acd5-9b0b84784736
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 90
+									<br>
+								
+									ETag: W/"5a-zDY4eWmNS66G46uLVvgKWHUis7w"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 90 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-21respb" style="display: none;">
+								
+									{"errors":[{"code":"PEDIDO_VAZIO","message":"O pedido não possui nenhum item ou combo"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos">http://localhost:3000/pedidos</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-20">
+								<a onclick="showHide(&#39;alert-20&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-20">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 420 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-20reqh" style="display: none;">
+								
+									POST http://localhost:3000/pedidos HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16
+									<br>
+								
+									Postman-Token: 4a7f9207-e7d4-4d73-b44c-127de5806db9
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 195
+									<br>
+								
+									Referer: http://localhost:3000/pedidos
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 195 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-20reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "cliente": "44175516859",
+									<br>
+								
+									  "itens": [
+									<br>
+								
+									    "5eca5ab4-a3a5-47f5-afb8-5a67256bd24b",
+									<br>
+								
+											"f83829e1-e1c3-4eab-a9e6-a223b03da6e7"
+									<br>
+								
+									  ],
+									<br>
+								
+									  "combos": [
+									<br>
+								
+									    "92066b90-e93a-413b-bb83-ec3d7e543dad"
+									<br>
+								
+									  ]
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 300 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-20resph" style="display: none;">
+								
+									HTTP/1.1 400 Bad Request
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: a53bde6e-b3d7-4b9a-b1cb-fce5fdfdbae1
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 90
+									<br>
+								
+									ETag: W/"5a-zDY4eWmNS66G46uLVvgKWHUis7w"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 90 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-20respb" style="display: none;">
+								
+									{"errors":[{"code":"PEDIDO_VAZIO","message":"O pedido não possui nenhum item ou combo"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%" class="indent1">URL</td>
+						<td width="80%"><a href="http://localhost:3000/pedidos">http://localhost:3000/pedidos</a></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Método</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Parameter</td>
+						<td width="80%">Cabeçalho do Agente de Usuário</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Ataque</td>
+						<td width="80%">msnbot/1.1 (+http://search.msn.com/msnbot.htm)</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">
+							<div id="alert-18">
+								<a onclick="showHide(&#39;alert-18&#39;);" href="file:///C:/Users/sciensa/Documents/FIAP/Pos-Arquitetura/tech-challanger/OWASP/2024-06-11-ZAP-Report-localhost.html#alert-18">Show / hide Request and Response</a>
+							</div>
+						</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Solicitação
+							- size: 325 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-18reqh" style="display: none;">
+								
+									POST http://localhost:3000/pedidos HTTP/1.1
+									<br>
+								
+									Content-Type: application/json
+									<br>
+								
+									Accept: application/json
+									<br>
+								
+									user-agent: msnbot/1.1 (+http://search.msn.com/msnbot.htm)
+									<br>
+								
+									Postman-Token: 4a7f9207-e7d4-4d73-b44c-127de5806db9
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Content-Length: 195
+									<br>
+								
+									Referer: http://localhost:3000/pedidos
+									<br>
+								
+									host: localhost:3000
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo da Solicitação
+							- size: 195 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-18reqb" style="display: none;">
+								
+									{
+									<br>
+								
+									  "cliente": "44175516859",
+									<br>
+								
+									  "itens": [
+									<br>
+								
+									    "5eca5ab4-a3a5-47f5-afb8-5a67256bd24b",
+									<br>
+								
+											"f83829e1-e1c3-4eab-a9e6-a223b03da6e7"
+									<br>
+								
+									  ],
+									<br>
+								
+									  "combos": [
+									<br>
+								
+									    "92066b90-e93a-413b-bb83-ec3d7e543dad"
+									<br>
+								
+									  ]
+									<br>
+								
+									}
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Cabeçalho de Resposta
+							- size: 300 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-18resph" style="display: none;">
+								
+									HTTP/1.1 400 Bad Request
+									<br>
+								
+									X-Powered-By: Express
+									<br>
+								
+									x-correlation-id: 47d0ca0d-c221-439e-9c02-a9ba4e2e8c28
+									<br>
+								
+									Content-Type: application/json; charset=utf-8
+									<br>
+								
+									Content-Length: 90
+									<br>
+								
+									ETag: W/"5a-zDY4eWmNS66G46uLVvgKWHUis7w"
+									<br>
+								
+									Date: Wed, 12 Jun 2024 01:36:36 GMT
+									<br>
+								
+									Connection: keep-alive
+									<br>
+								
+									Keep-Alive: timeout=5
+									<br>
+								
+									
+									
+								
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%" class="indent2">Corpo de Resposta
+							- size: 90 bytes.
+						</td>
+						<td width="80%">
+							<div id="alert-18respb" style="display: none;">
+								
+									{"errors":[{"code":"PEDIDO_VAZIO","message":"O pedido não possui nenhum item ou combo"}]}
+									
+								
+							</div>
+						</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">24</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://owasp.org/wstg">https://owasp.org/wstg</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Marcadores (Tags)</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a href="https://www.zaproxy.org/docs/alerts/10104/">10104</a></td>
+				</tr>
+			</tbody></table>
+			<div class="spacer"></div>
+		
+	
+
+
+
+</body></html>
