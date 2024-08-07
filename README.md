@@ -62,6 +62,17 @@ Já se estiver utilizando Docker, pode acessar em http://localhost:3333/swagger 
 
 E se estiver utilizando o ambiente de desenvolvimento via `yarn`, basta acessar em http://localhost:3000/swagger e http://localhost:3000/swagger-json .
 
+## Padrão SAGA - Coreografada
+
+Foi escolhido o padrão "Coreografada" por priorizar a independência. Mas além disso, nos baseamos em outros pontos da "Coreografada". Que são:
+
+**Consistência de Dados:** A coreografia saga é uma alternativa quando a confirmação em duas fases (2PC) não é viável, caso usando em nosso projeto, utilizamos bancos de dados NoSQL(MongoDB) e SQL(Postgres). Foi a alternativa para manter a consistência dos dados, mesmo com serviços independentes.
+
+**Baixo Acoplamento:** Cada serviço (pedido, pagamento, produção, cardapio) tem suas respectivas responsabilidades, com isso mantemos a independências dos mesmos, evitando um ponto único de falha e facilita a manutenção.
+
+**Simplicidade:** Nesse padrão cada serviço gerencia seus dados, não sendo necessário de um processo de controle central.
+
+**Compensação:** E se algo der errado, todos os serviços participantes da SAGA dão rollback no fluxo, executando ações de compensação. Isso garante que o sistema retorne a um estado consistente.
 
 ## OWASP ZAP
 Executamos o OWASP ZAP na geração de pedido, listagem de pedido e atualização do status do pedido
