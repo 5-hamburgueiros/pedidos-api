@@ -123,6 +123,7 @@ export class PedidoEntity extends AbstractEntity {
     const isValid = [
       StatusPedido.AGUARDANDO_PAGAMENTO,
       StatusPedido.EM_PREPARACAO,
+      StatusPedido.PAGO, // Necessario para casos de fluxo compensatorio
     ].includes(this.status);
 
     if (!isValid) {
