@@ -21,4 +21,10 @@ export class StatusPagamentoConsumerService {
     console.log(`Received message: ${JSON.stringify(msg)}`);
     this.updateStatusPedidoUseCase.execute(msg);
   }
+
+  @RabbitSubscribe({ queue: 'pedido_compensatorio_pedido' })
+  public async compensarPagamento(msg: IUpdateStatusPedidoUseCase.Params) {
+    console.log(`Received message compensarPagamento: ${JSON.stringify(msg)}`);
+    this.updateStatusPedidoUseCase.execute(msg);
+  }
 }
